@@ -267,7 +267,6 @@
 		var requirements = [
 			"src/sha1.js",
 			"src/bencode.js",
-			"src/base32.js",
 			"src/t2m.js",
 		];
 

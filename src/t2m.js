@@ -289,7 +289,7 @@ var T2M = (function () {
 				info_hasher.update(info_bencoded);
 				info_hash = info_hasher.digest();
 				info_hash = String.fromCharCode.apply(null, info_hash); // convert to binary string
-				info_hash = Base32.encode(info_hash); // convert to base32
+				info_hash = ascii_to_hexa(info_hash)
 
 				// Setup link
 				for (i = 0; i < magnet_component_order_default.length; ++i) {
@@ -750,3 +750,17 @@ var T2M = (function () {
 })();
 
 
+
+function ascii_to_hexa(str)
+  {
+	var arr1 = [];
+	for (var n = 0, l = str.length; n < l; n ++) 
+     {
+		var hex = Number(str.charCodeAt(n)).toString(16);
+		if (hex.length === 1) {
+			hex = ("0" + hex);
+		}
+		arr1.push(hex);
+	 }
+	return arr1.join('');
+   }
